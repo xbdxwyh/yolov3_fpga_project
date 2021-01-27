@@ -1,5 +1,6 @@
 # yolov3_hls
 这一块的代码是在把上交的陈辰大佬的yolov2代码改成yolov3的时候的一些改动，主要步骤还是参考陈辰大佬的代码。
+https://github.com/dhm2013724/yolov2_xilinx_fpga
 但是有一些和他不一样的细节。
 
 # 在权重处理部分
