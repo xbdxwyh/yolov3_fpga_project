@@ -1,0 +1,13 @@
+source /opt/pkg/petalinux/settings.sh 
+source /opt/Xilinx/Vivado/2017.4/settings64.sh
+petalinux-create --type project --template zynq --name hdyolo
+cd hdyolo
+cp -r ../project_2.sdk ./
+rm -rf ./project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+cp ../system-user.dtsi ./project-spec/meta-user/recipes-bsp/device-tree/files/
+petalinux-config --get-hw-description ./project_2.sdk/
+petalinux-config -c kernel
+petalinux-config -c rootfs
+petalinux-build
+petalinux-package --boot --fsbl ./images/linux/zynq_fsbl.elf --fpga --u-boot --force
+
